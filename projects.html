@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Naman Malik</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0b0f1a;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    #background-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .animated-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 188, 212, 0.1), transparent 60%),
+                  radial-gradient(circle at calc(var(--x, 50%) + 10%) calc(var(--y, 50%) + 10%), rgba(255, 0, 150, 0.1), transparent 60%);
+      animation: shimmer 5s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    header {
+      margin-top: 80px;
+      text-align: center;
+      color: #00bcd4;
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 60px 50px;
+    }
+
+    .project-card {
+      background-color: #1c2331;
+      border-radius: 20px;
+      padding: 50px 30px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 188, 212, 0.15);
+      transform: perspective(1000px) translateZ(0);
+    }
+
+    .project-card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 15px 30px rgba(0, 188, 212, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="background-effect">
+    <div class="animated-bg"></div>
+  </div>
+
+  <header>🚀 Featured Projects</header>
+
+  <div class="grid-container">
+    <div class="project-card">Project One</div>
+    <div class="project-card">Project Two</div>
+    <div class="project-card">Project Three</div>
+    <div class="project-card">Project Four</div>
+    <div class="project-card">Project Five</div>
+  </div>
+
+  <script>
+    const effect = document.getElementById('background-effect');
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      effect.style.setProperty('--x', `${x}%`);
+      effect.style.setProperty('--y', `${y}%`);
+    });
+  </script>
+</body>
+
+</html>
