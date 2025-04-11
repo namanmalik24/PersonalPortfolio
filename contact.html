@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Naman Malik</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #62fcd7;
+      --bg: #1e222a;
+      --text: #ffffff;
+      --muted: #aaaaaa;
+    }
+
+    .light-theme {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 50px;
+      background-color: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      margin: 0 auto;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 15px;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(20deg);
+    }
+
+    header {
+      font-size: 64px;
+      font-weight: 800;
+      padding: 80px 60px 20px;
+      border-bottom: 2px solid var(--text);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px 20px;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .contact-wrapper p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 24px;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      text-decoration: none;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--primary);
+      color: var(--bg);
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .social-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .light-theme .social-item img {
+      filter: none;
+    }
+
+    .social-item p {
+      font-size: 14px;
+      color: var(--text);
+      margin: 0;
+    }
+
+    body.transitioning {
+      opacity: 0;
+      transform: rotateY(90deg);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      transform-origin: left center;
+    }
+
+    body.ready {
+      opacity: 1;
+      transform: rotateY(0deg);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 64px;
+  font-weight: 800;
+  padding: 80px 60px 20px;
+  border-bottom: none;
+}
+
+header .line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--text);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="projects.html">projects</a>
+      <a href="contact.html">contact</a>
+    </div>
+    <div class="theme-toggle" onclick="toggleTheme()" id="themeIcon">☀️</div>
+  </nav>
+
+  <!-- Page Heading -->
+  <header>
+    <span>Contact</span>
+    <div class="line"></div>
+  </header>
+  
+
+  <!-- Content Section -->
+  <div class="contact-wrapper">
+    <p>
+        I'm currently open to <strong>freelance projects</strong> and actively seeking exciting <strong>full-time software engineering roles</strong>. 
+        If my work resonates with you, I’d love to connect and explore how we can build something impactful together.
+      </p>
+      
+      <p>
+        Whether you have a question, an opportunity, or just want to say hello — feel free to drop a message. 
+        My inbox is always open, and I’ll do my best to respond promptly.
+      </p>
+      
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <a href="mailto:naman.m888@gmail.com" class="btn">GET IN TOUCH</a>
+      <a href="assets/Naman_Malik_Resume_newfinal.pdf" class="btn" target="_blank">RESUME</a>
+    </div>
+
+    <!-- Social Links -->
+    <div class="socials">
+      <div class="social-item">
+        <a href="https://www.linkedin.com/in/namanmalik8/" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+        </a>
+        <p>LinkedIn</p>
+      </div>
+      <div class="social-item">
+        <a href="https://github.com/namanmalik24" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" />
+        </a>
+        <p>GitHub</p>
+      </div>
+      <div class="social-item">
+        <a href="https://leetcode.com/u/NamanMalik/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" />
+        </a>
+        <p>LeetCode</p>
+      </div>
+      <div class="social-item">
+        <a href="https://codeforces.com/profile/namanmalik24" target="_blank">
+          <img src="https://sta.codeforces.com/s/46892/images/codeforces-logo-with-telegram.png" alt="Codeforces" />
+        </a>
+        <p>Codeforces</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+      const icon = document.getElementById('themeIcon');
+      icon.textContent = document.body.classList.contains('light-theme') ? '🌙' : '☀️';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("ready");
+    });
+
+    const links = document.querySelectorAll("a[href]");
+    links.forEach(link => {
+      const url = link.getAttribute("href");
+      if (!url.startsWith("#") && !url.startsWith("mailto")) {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.body.classList.remove("ready");
+          document.body.classList.add("transitioning");
+          setTimeout(() => {
+            window.location.href = url;
+          }, 600);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

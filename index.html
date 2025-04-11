@@ -1,209 +1,305 @@
-<!-- START OF REDESIGNED HERO SECTION FOR NAMAN MALIK -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Naman Malik | Portfolio</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
+    :root {
+      --primary: #62fcd7;
+      --bg: #1e222a;
+      --text: #ffffff;
+      --muted: #aaaaaa;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .light-theme {
+      --bg: #fdf9f6;
+      --text: #1a1a1a;
+      --primary: #7b61ff;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background-color: #0b0f1a;
-      color: #ffffff;
-      overflow-x: hidden;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.3s, color 0.3s;
     }
 
-    #background-effect {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .animated-bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 188, 212, 0.1), transparent 60%),
-                  radial-gradient(circle at calc(var(--x, 50%) + 10%) calc(var(--y, 50%) + 10%), rgba(255, 0, 150, 0.1), transparent 60%);
-      animation: shimmer 5s infinite linear;
-    }
-
-    @keyframes shimmer {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
-    }
-
-    header {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 30px 50px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
-
-    nav ul li {
-      margin-left: 30px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav ul li a:hover,
-    nav ul li a.active {
-      color: #00bcd4;
-      border-bottom: 2px solid #00bcd4;
-    }
-
-    .hero {
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 50px;
-      min-height: 100vh;
-      position: relative;
+      padding: 18px 50px;
+      background-color: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
-    .hero-text {
-      max-width: 600px;
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      margin: 0 auto;
     }
 
-    .hero-text h1 {
-      font-size: 50px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #ffffff;
-    }
-
-    .hero-text h3 {
-      font-weight: 400;
-      color: #cccccc;
-      margin-bottom: 20px;
-    }
-
-    .hero-text p {
-      font-size: 18px;
-      color: #00bcd4;
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      padding: 12px 28px;
-      border: 2px solid #00bcd4;
-      background: transparent;
-      cursor: pointer;
-      font-weight: 500;
-      color: #00bcd4;
+    .nav-links a {
+      text-decoration: none;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 15px;
+      color: var(--text);
+      text-transform: lowercase;
       transition: 0.3s;
     }
 
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(20deg);
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 90vh;
+      padding: 0 60px;
+      box-shadow: 0 0 20px rgba(98, 252, 215, 0.05);
+      border-radius: 16px;
+      transition: box-shadow 0.6s ease;
+    }
+
+    .container:hover {
+      box-shadow: 0 0 40px rgba(98, 252, 215, 0.2);
+    }
+
+    .text-section {
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .image-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .text-section h1 {
+      font-size: 54px;
+      font-weight: 700;
+    }
+
+    .text-section h1 span {
+      color: var(--primary);
+    }
+
+    .text-section h2 {
+      color: var(--primary);
+      font-size: 30px;
+      margin-top: 20px;
+    }
+
+    .text-section p {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 16px;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 14px;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      background: transparent;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+
     .btn:hover {
-      background-color: #00bcd4;
-      color: #0b0f1a;
+      background-color: var(--primary);
+      color: var(--bg);
     }
 
-    .hero-img img {
-      max-height: 600px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+    .image-section img {
+      max-width: 300px;
+      animation: float 3s ease-in-out infinite;
+      border-radius: 12px;
     }
 
-    #about {
-      padding: 100px 50px;
-      background-color: #0d121f;
-      position: relative;
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
     }
 
-    #about h2 {
-      font-size: 48px;
-      margin-bottom: 30px;
-      color: #00bcd4;
-      text-align: center;
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .image-section {
+        margin-top: 40px;
+      }
+
+      .btn {
+        margin-bottom: 10px;
+      }
     }
 
-    #about p {
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.8;
-      color: #ccc;
-      text-align: center;
+    body.transitioning {
+      opacity: 0;
+      transform: rotateY(90deg);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      transform-origin: left center;
+    }
+
+    body.ready {
+      opacity: 1;
+      transform: rotateY(0deg);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    body.ready .text-section,
+    body.ready .image-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubbles span {
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: rgba(98, 252, 215, 0.08);
+      border-radius: 50%;
+      animation: floatUp 20s linear infinite;
+      bottom: -100px;
+    }
+
+    .bubbles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .bubbles span:nth-child(2) { left: 30%; animation-delay: 4s; }
+    .bubbles span:nth-child(3) { left: 50%; animation-delay: 8s; }
+    .bubbles span:nth-child(4) { left: 70%; animation-delay: 12s; }
+    .bubbles span:nth-child(5) { left: 90%; animation-delay: 16s; }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-120vh); }
     }
   </style>
 </head>
 
 <body>
-  <div id="background-effect">
-    <div class="animated-bg"></div>
+
+  <!-- Bubble Background -->
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero" id="home">
-    <div class="hero-text">
-      <p>HEY THERE!</p>
-      <h1>I AM NAMAN</h1>
-      <h3>A PROFESSIONAL DEVELOPER</h3>
-      <a href="#contact"><button class="btn">HIRE ME</button></a>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="projects.html">projects</a>
+      <a href="contact.html">contact</a>
     </div>
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d" alt="Developer Illustration">
+    <div class="theme-toggle" id="themeToggle">☀️</div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="container" id="home">
+    <div class="text-section">
+      <h1>Hello, I'm <span><br>Naman Malik</span></h1>
+      <h2><span id="typed-role"></span></h2>
+      <p>
+        A curiosity-driven coder with a passion for designing and building user-centric,
+        inclusive experiences on the web.
+      </p>
+      <a href="contact.html" class="btn">GET IN TOUCH</a>
+      <a href="assets/Naman_Malik_Resume_newfinal.pdf" class="btn" target="_blank">RESUME</a>
     </div>
-  </section>
 
-  <section id="about" style="z-index: 0;">
-    <div class="animated-bg"></div>
-    <h2>About</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a rutrum nisl. Pellentesque vel bibendum elit. 
-      Morbi ultricies lorem et lectus fermentum, ac elementum nibh feugiat. Nam porttitor velit id elit imperdiet, 
-      at convallis sem congue. Suspendisse potenti. Nullam vulputate sem ut faucibus finibus. Mauris accumsan risus sed 
-      diam luctus, nec fringilla lorem iaculis. Sed gravida neque nec purus dapibus, vel suscipit lorem egestas.
-    </p>
-  </section>
-
-  <div class="animated-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1;"></div>
+    <div class="image-section">
+      <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" alt="Developer Typing Animation" />
+    </div>
+  </div>
 
   <script>
-    const effect = document.getElementById('background-effect');
-    document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      effect.style.setProperty('--x', `${x}%`);
-      effect.style.setProperty('--y', `${y}%`);
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+      const icon = document.getElementById("themeToggle");
+      icon.textContent = document.body.classList.contains('light-theme') ? '🌙' : '☀️';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("ready");
+
+      const typed = new Typed('#typed-role', {
+        strings: ['Full-Stack Developer', 'Open Source Contributor', 'Tech Enthusiast'],
+        typeSpeed: 60,
+        backSpeed: 30,
+        loop: true
+      });
+
+      document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+    });
+
+    const links = document.querySelectorAll("a[href]");
+    links.forEach(link => {
+      const url = link.getAttribute("href");
+      if (!url.startsWith("#") && !url.startsWith("mailto")) {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.body.classList.remove("ready");
+          document.body.classList.add("transitioning");
+          setTimeout(() => {
+            window.location.href = url;
+          }, 600);
+        });
+      }
     });
   </script>
-</body>
 
+</body>
 </html>
-<!-- END OF REDESIGNED HERO SECTION -->
