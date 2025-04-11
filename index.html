@@ -257,7 +257,7 @@
         inclusive experiences on the web.
       </p>
       <a href="contact.html" class="btn">GET IN TOUCH</a>
-      <a href="assets/Naman Malik_updated_cv.pdf" class="btn" target="_blank">RESUME</a>
+      <a href="assets/Naman%20Malik_updated_cv.pdf" class="btn" target="_blank" rel="noopener noreferrer">RESUME</a>
     </div>
 
     <div class="image-section">
@@ -282,22 +282,25 @@
         loop: true
       });
 
-      document.getElementById("themeToggle").addEventListener("click", toggleTheme);
-    });
+      // Fixed logic — let target="_blank" links open naturally
+      const links = document.querySelectorAll("a[href]");
+      links.forEach(link => {
+        const isExternal = link.target === "_blank";
+        const url = link.getAttribute("href");
 
-    const links = document.querySelectorAll("a[href]");
-    links.forEach(link => {
-      const url = link.getAttribute("href");
-      if (!url.startsWith("#") && !url.startsWith("mailto")) {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          document.body.classList.remove("ready");
-          document.body.classList.add("transitioning");
-          setTimeout(() => {
-            window.location.href = url;
-          }, 600);
-        });
-      }
+        if (!isExternal && !url.startsWith("#") && !url.startsWith("mailto")) {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.classList.remove("ready");
+            document.body.classList.add("transitioning");
+            setTimeout(() => {
+              window.location.href = url;
+            }, 600);
+          });
+        }
+      });
+
+      document.getElementById("themeToggle").addEventListener("click", toggleTheme);
     });
   </script>
 
