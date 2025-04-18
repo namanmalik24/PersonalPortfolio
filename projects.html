@@ -36,7 +36,7 @@
 
     .navbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 18px 50px;
       background-color: var(--bg);
@@ -63,24 +63,20 @@
       color: var(--primary);
     }
 
-    .theme-toggle {
-      font-size: 24px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      transform: rotate(20deg);
-    }
-
     header {
-      font-size: 64px;
-      font-weight: 800;
-      padding: 80px 60px 20px;
-      border-bottom: 2px solid var(--text);
       display: flex;
       align-items: center;
       gap: 20px;
+      font-size: 64px;
+      font-weight: 800;
+      padding: 80px 60px 20px;
+      border-bottom: none;
+    }
+
+    header .line {
+      flex-grow: 1;
+      height: 2px;
+      background-color: var(--text);
     }
 
     .project-wrapper {
@@ -234,23 +230,6 @@
         padding: 20px;
       }
     }
-
-    header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-size: 64px;
-  font-weight: 800;
-  padding: 80px 60px 20px;
-  border-bottom: none;
-}
-
-header .line {
-  flex-grow: 1;
-  height: 2px;
-  background-color: var(--text);
-}
-
   </style>
 </head>
 
@@ -269,7 +248,6 @@ header .line {
       <a href="projects.html">projects</a>
       <a href="contact.html">contact</a>
     </div>
-    <div class="theme-toggle" onclick="toggleTheme()" id="themeIcon">☀️</div>
   </nav>
 
   <!-- Page Heading -->
@@ -277,15 +255,13 @@ header .line {
     <span>projects</span>
     <div class="line"></div>
   </header>
-  
 
   <!-- Project Cards -->
   <div class="project-wrapper">
 
     <!-- Project 1 -->
     <div class="project-card">
-      <img src="images/gpt_handrecog.png" 
-           alt="Real-Time Hand Pose Estimation Demo" />
+      <img src="images/gpt_handrecog.png" alt="Real-Time Hand Pose Estimation Demo" />
       <div class="project-info">
         <h2>Real-Time Hand Pose Estimation</h2>
         <ul>
@@ -313,30 +289,22 @@ header .line {
 
     <!-- Project 3 -->
     <div class="project-card">
-        <img src="images/gpt_hoverboard.png" alt="Shopper E-Commerce" />
-        <div class="project-info">
-          <h2>Hoverboard</h2>
-          <ul>
-            <li>Built with HTML, CSS, and JavaScript</li>
-            <li>Features interactive grid-based hover animation with dynamic color effects</li>
-            <li>Lightweight, responsive, and visually engaging web animation project</li>
-            
-          </ul>
-          <a class="repo-button" href="https://github.com/namanmalik24/hoverboard/tree/main" target="_blank">GITHUB REPO</a>
-        </div>
+      <img src="images/gpt_hoverboard.png" alt="Hoverboard" />
+      <div class="project-info">
+        <h2>Hoverboard</h2>
+        <ul>
+          <li>Built with HTML, CSS, and JavaScript</li>
+          <li>Features interactive grid-based hover animation with dynamic color effects</li>
+          <li>Lightweight, responsive, and visually engaging web animation project</li>
+        </ul>
+        <a class="repo-button" href="https://github.com/namanmalik24/hoverboard/tree/main" target="_blank">GITHUB REPO</a>
       </div>
-
+    </div>
 
   </div>
 
   <!-- Script -->
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-      const icon = document.getElementById('themeIcon');
-      icon.textContent = document.body.classList.contains('light-theme') ? '🌙' : '☀️';
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("ready");
     });

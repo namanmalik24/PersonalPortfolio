@@ -18,12 +18,6 @@
       scroll-behavior: smooth;
     }
 
-    .light-theme {
-      --bg: #fdf9f6;
-      --text: #1a1a1a;
-      --primary: #7b61ff;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -39,7 +33,7 @@
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 18px 50px;
       background-color: var(--bg);
@@ -65,16 +59,6 @@
 
     .nav-links a:hover {
       color: var(--primary);
-    }
-
-    .theme-toggle {
-      font-size: 24px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      transform: rotate(20deg);
     }
 
     .container {
@@ -244,7 +228,6 @@
       <a href="projects.html">projects</a>
       <a href="contact.html">contact</a>
     </div>
-    <div class="theme-toggle" id="themeToggle">☀️</div>
   </nav>
 
   <!-- Hero Section -->
@@ -266,12 +249,6 @@
   </div>
 
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-      const icon = document.getElementById("themeToggle");
-      icon.textContent = document.body.classList.contains('light-theme') ? '🌙' : '☀️';
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("ready");
 
@@ -282,7 +259,6 @@
         loop: true
       });
 
-      // Fixed logic — let target="_blank" links open naturally
       const links = document.querySelectorAll("a[href]");
       links.forEach(link => {
         const isExternal = link.target === "_blank";
@@ -299,8 +275,6 @@
           });
         }
       });
-
-      document.getElementById("themeToggle").addEventListener("click", toggleTheme);
     });
   </script>
 

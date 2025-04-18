@@ -37,7 +37,7 @@
 
     .navbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 18px 50px;
       background-color: var(--bg);
@@ -62,16 +62,6 @@
 
     .nav-links a:hover {
       color: var(--primary);
-    }
-
-    .theme-toggle {
-      font-size: 22px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      transform: rotate(20deg);
     }
 
     .about-section {
@@ -204,7 +194,6 @@
       <a href="projects.html">projects</a>
       <a href="contact.html">contact</a>
     </div>
-    <div class="theme-toggle" onclick="toggleTheme()" id="themeIcon">☀️</div>
   </nav>
 
   <!-- About Section -->
@@ -212,7 +201,6 @@
     <!-- Image -->
     <div class="about-img">
         <img src="images/WhatsApp%20Image%202025-04-10%20at%2023.43.09.jpeg" alt="Naman Malik Portrait" loading="lazy">
-
     </div>
 
     <!-- Text -->
@@ -235,20 +223,11 @@
         <p>
           I’m always open to new ideas, collaborations, and opportunities to make meaningful impact through code.
         </p>
-      </div>
-      
-      
-      
+    </div>
   </section>
 
   <!-- Scripts -->
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-      const icon = document.getElementById('themeIcon');
-      icon.textContent = document.body.classList.contains('light-theme') ? '🌙' : '☀️';
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("ready");
     });

@@ -33,7 +33,7 @@
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 18px 50px;
       background-color: var(--bg);
@@ -45,7 +45,6 @@
     .nav-links {
       display: flex;
       gap: 30px;
-      margin: 0 auto;
     }
 
     .nav-links a {
@@ -58,16 +57,6 @@
 
     .nav-links a:hover {
       color: var(--primary);
-    }
-
-    .theme-toggle {
-      font-size: 24px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      transform: rotate(20deg);
     }
 
     header {
@@ -181,7 +170,6 @@
       <a href="projects.html">projects</a>
       <a href="contact.html">contact</a>
     </div>
-    <div class="theme-toggle" onclick="toggleTheme()" id="themeIcon">☀️</div>
   </nav>
 
   <!-- Page Heading -->
@@ -238,12 +226,6 @@
 
   <!-- Scripts -->
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-      const icon = document.getElementById('themeIcon');
-      icon.textContent = document.body.classList.contains('light-theme') ? '🌙' : '☀️';
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("ready");
 
